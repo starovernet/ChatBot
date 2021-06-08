@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using System.Threading.Tasks;
 
 namespace ChatBot.Domain

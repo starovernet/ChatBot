@@ -4,12 +4,12 @@ using ChatBot.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace ChatBot.DataAccess.MySql
+namespace ChatBot.DataAccess.MySql.Implementation
 {
     internal class ResponsesDb : IResponsesDb
     {
         //To simplify i use memory cache, but it may be redis for scalability, or can be both.
-        //Cache invalidation have to be managed by another service, which update db, it may send some event with intent value
+        //Cache invalidation have to be managed by service, which update db, it may use pub/sub to notify services to invalidate cache
         private readonly IMemoryCache _cache;
         private readonly ChatBotDbContext _dbContext;
 

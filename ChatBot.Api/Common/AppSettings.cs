@@ -2,9 +2,9 @@ namespace ChatBot.Api.Common
 {
     public record AppSettings
     {
-        public string AiClientUrl { get; set; }
-        public double PredictionThreshold { get; set; }
-        public string AiApiKey { get; set; }
-        public string DefaultResponse { get; set; }
+        public string AiClientUrl { get; init; }
+        public double PredictionThreshold { get; init; }
+        public string AiApiKey { get; init; }
+        public string DefaultResponse { get; init; }
     }
 }

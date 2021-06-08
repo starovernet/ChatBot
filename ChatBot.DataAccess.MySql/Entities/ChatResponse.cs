@@ -1,4 +1,4 @@
-namespace ChatBot.DataAccess.MySql
+namespace ChatBot.DataAccess.MySql.Entities
 {
     public class ChatResponse
     {

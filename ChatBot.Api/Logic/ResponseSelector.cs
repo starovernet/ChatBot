@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using ChatBot.Api.Common;
 using ChatBot.Api.Dto;
 using ChatBot.Domain;
+
+[assembly: InternalsVisibleTo("ChatBot.UnitTests")]
 
 namespace ChatBot.Api.Logic
 {
@@ -36,11 +39,11 @@ namespace ChatBot.Api.Logic
                 return _settings.DefaultResponse;
 
             string[] responses = await _responsesDb.GetResponsesForIntent(intent.Name);
-            if (responses == null)
+            if (responses == null || responses.Length == 0)
                 return _settings.DefaultResponse;
             return responses.Length == 1
                 ? responses[0]
-                : responses[_random.Next(responses.Length - 1)];
+                : responses[_random.Next(responses.Length)];
         }
     }
 }
